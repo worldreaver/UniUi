@@ -1,0 +1,19 @@
+{
+    "name": "wr@uniui",
+    "references": [
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:560b04d1a97f54a4e82edc0cbbb69285",
+        "GUID:d2abb45fb36c6254a83e1bd1956b8b79",
+        "GUID:5a0880b521237d84798ba6a3b282a762",
+        "GUID:9772734022e0622448499eaeb6c5ba89"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
