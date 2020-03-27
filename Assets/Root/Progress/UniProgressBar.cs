@@ -115,6 +115,32 @@ namespace Worldreaver.UniUI
             (_foregroundDid, _foregroundDo, _delayedDid, _delayedDo) = _progressMode.Initialized(this);
         }
 
+        /// <summary>
+        /// reset progressbar with current min and max
+        /// </summary>
+        public void ResetProgress()
+        {
+            _isInitialized = false;
+            _progressMode = null;
+            Initialized(Min, Max);
+        }
+
+        /// <summary>
+        /// reset progressbar with new min and max
+        /// </summary>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        public void ResetProgress(float min,
+            float max)
+        {
+            _isInitialized = false;
+            _progressMode = null;
+            Initialized(min, max);
+        }
+
+        /// <summary>
+        /// initialize progress mode
+        /// </summary>
         private void InitializeProgressMode()
         {
             if (_progressMode == null)
@@ -149,6 +175,9 @@ namespace Worldreaver.UniUI
             }
         }
 
+        /// <summary>
+        /// initialize foreground motion
+        /// </summary>
         private void InitialzieForegroundMotion()
         {
             if (curveForegroundBar)
