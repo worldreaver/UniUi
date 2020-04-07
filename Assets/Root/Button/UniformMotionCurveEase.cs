@@ -6,7 +6,7 @@ using Worldreaver.UniTween;
 namespace Worldreaver.UniUI
 {
     [Serializable]
-    public class MotionCurveEase : IMotion
+    public class UniformMotionCurveEase : IMotion
     {
 #pragma warning disable 0649
         public Vector3 percentScaleDown = new Vector3(0.95f, 0.95f, 1f);
@@ -23,10 +23,6 @@ namespace Worldreaver.UniUI
         public void MotionUp(Vector3 defaultScale,
             RectTransform affectObject)
         {
-            DisposeDown();
-            var tween = Easing.Interpolate(easeUp, durationUp);
-            DisposeUp();
-            _disposableUp = Tweener.Play(affectObject.localScale, defaultScale, tween).SubscribeToLocalScale(affectObject).AddTo(affectObject);
         }
 
         public void MotionDown(Vector3 defaultScale,
@@ -35,7 +31,12 @@ namespace Worldreaver.UniUI
             DisposeUp();
             var tween = TweenMotion.From(curveDown, durationDown);
             DisposeDown();
-            _disposableDown = Tweener.Play(affectObject.localScale, new Vector3(defaultScale.x * PercentScaleDown.x, defaultScale.y * PercentScaleDown.y), tween).SubscribeToLocalScale(affectObject).AddTo(affectObject);
+            _disposableDown = Tweener.Play(affectObject.localScale, new Vector3(defaultScale.x * PercentScaleDown.x, defaultScale.y * PercentScaleDown.y), tween).DoOnCompleted(() =>
+            {
+                var tweenUp = Easing.Interpolate(easeUp, durationUp);
+                DisposeUp();
+                _disposableUp = Tweener.Play(affectObject.localScale, defaultScale, tweenUp).SubscribeToLocalScale(affectObject).AddTo(affectObject);
+            }).SubscribeToLocalScale(affectObject).AddTo(affectObject);
         }
 
         public void DisposeDown()

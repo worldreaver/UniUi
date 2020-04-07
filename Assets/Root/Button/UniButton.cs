@@ -160,6 +160,18 @@ namespace Worldreaver.UniUI
                     case EUIMotionType.EaseDownEaseUp:
                         _motion = new MotionEaseEase();
                         break;
+                    case EUIMotionType.UniformCurveDownCurveUp:
+                        _motion = new UniformMotionCurveCurve();
+                        break;
+                    case EUIMotionType.UniformCurveDownEaseUp:
+                        _motion = new UniformMotionCurveEase();
+                        break;
+                    case EUIMotionType.UniformEaseDownCurveUp:
+                        _motion = new UniformMotionEaseCurve();
+                        break;
+                    case EUIMotionType.UniformEaseDownEaseUp:
+                        _motion = new UniformMotionEaseEase();
+                        break;
                 }
             }
             else
@@ -180,6 +192,18 @@ namespace Worldreaver.UniUI
                         break;
                     case EUIMotionType.EaseDownEaseUp when _motion.GetType() != typeof(MotionEaseEase):
                         _motion = new MotionEaseEase();
+                        break;
+                    case EUIMotionType.UniformCurveDownCurveUp when _motion.GetType() != typeof(UniformMotionCurveCurve):
+                        _motion = new UniformMotionCurveCurve();
+                        break;
+                    case EUIMotionType.UniformCurveDownEaseUp when _motion.GetType() != typeof(UniformMotionCurveEase):
+                        _motion = new UniformMotionCurveEase();
+                        break;
+                    case EUIMotionType.UniformEaseDownCurveUp when _motion.GetType() != typeof(UniformMotionEaseCurve):
+                        _motion = new UniformMotionEaseCurve();
+                        break;
+                    case EUIMotionType.UniformEaseDownEaseUp when _motion.GetType() != typeof(UniformMotionEaseEase):
+                        _motion = new UniformMotionEaseEase();
                         break;
                 }
             }
