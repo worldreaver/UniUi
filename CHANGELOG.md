@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/worldreaver/UniUi/compare/1.0.0...1.1.0) (2020-04-07)
+
+
+### Features
+
+* add uniform motion for button ([2378d4c](https://github.com/worldreaver/UniUi/commit/2378d4c8431c8bd4c0d004616f349d47e3580a7e))
+
 # 1.0.0 (2020-03-16)
 
 
