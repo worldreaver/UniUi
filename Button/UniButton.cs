@@ -13,10 +13,13 @@ namespace Worldreaver.UniUI
 #pragma warning disable 0649
         [SerializeField] private EPivot pivot = EPivot.MiddleCenter;
         [SerializeField] private bool isMotion;
+        [SerializeField] private bool allowMotionDisable;
         [SerializeField] private EUIMotionType motionType = EUIMotionType.Immediate;
+        [SerializeField] private EUIMotionType motionTypeDisable = EUIMotionType.Immediate;
         [SerializeField] private bool isAffectToSelf = true;
         [SerializeField] private RectTransform affectObject;
         [SerializeReference] private IMotion _motion;
+        [SerializeReference] private IMotion _motionDisable;
 #pragma warning restore 0649
 
         #endregion
@@ -25,6 +28,7 @@ namespace Worldreaver.UniUI
 
         public EPivot Pivot => pivot;
         public bool IsMotion => isMotion;
+        public bool AllowMotionDisable => allowMotionDisable;
         public bool IsRelease { get; private set; }
         public bool IsPrevent { get; private set; }
 
@@ -33,6 +37,15 @@ namespace Worldreaver.UniUI
             get => motionType;
             private set => motionType = value;
         }
+
+        public EUIMotionType MotionTypeDisable
+        {
+            get => motionTypeDisable;
+            private set => motionTypeDisable = value;
+        }
+
+        public IMotion Motion => _motion;
+        public IMotion MotionDisable => _motionDisable;
 
         #endregion
 
@@ -120,7 +133,14 @@ namespace Worldreaver.UniUI
             base.OnPointerDown(eventData);
             IsRelease = false;
             IsPrevent = false;
-            if (IsMotion) _motion?.MotionDown(DefaultScale, AffectObject);
+            if (!IsMotion) return;
+            if (!interactable && AllowMotionDisable)
+            {
+                _motionDisable?.MotionDown(DefaultScale, AffectObject);
+                return;
+            }
+
+            _motion?.MotionDown(DefaultScale, AffectObject);
         }
 
         public override void OnPointerUp(PointerEventData eventData)
@@ -128,7 +148,14 @@ namespace Worldreaver.UniUI
             if (IsRelease) return;
             base.OnPointerUp(eventData);
             IsRelease = true;
-            if (IsMotion) _motion?.MotionUp(DefaultScale, AffectObject);
+            if (!IsMotion) return;
+            if (!interactable && AllowMotionDisable)
+            {
+                _motionDisable?.MotionUp(DefaultScale, AffectObject);
+                return;
+            }
+
+            _motion?.MotionUp(DefaultScale, AffectObject);
         }
 
         public override void OnPointerClick(PointerEventData eventData)
@@ -141,6 +168,8 @@ namespace Worldreaver.UniUI
 
         protected void InitializeMotion()
         {
+            if (!IsMotion) return;
+
             if (_motion == null)
             {
                 switch (MotionType)
@@ -192,6 +221,63 @@ namespace Worldreaver.UniUI
                         break;
                     case EUIMotionType.LateEase when _motion.GetType() != typeof(LateMotionEase):
                         _motion = new LateMotionEase();
+                        break;
+                }
+            }
+
+            if (!AllowMotionDisable) return;
+
+            if (_motionDisable == null)
+            {
+                switch (MotionTypeDisable)
+                {
+                    case EUIMotionType.Immediate:
+                        _motionDisable = new MotionImmediate();
+                        break;
+                    case EUIMotionType.NormalCurve:
+                        _motionDisable = new MotionCurve();
+                        break;
+                    case EUIMotionType.NormalEase:
+                        _motionDisable = new MotionEase();
+                        break;
+                    case EUIMotionType.UniformCurve:
+                        _motionDisable = new UniformMotionCurve();
+                        break;
+                    case EUIMotionType.UniformEase:
+                        _motionDisable = new UniformMotionEase();
+                        break;
+                    case EUIMotionType.LateCurve:
+                        _motionDisable = new LateMotionCurve();
+                        break;
+                    case EUIMotionType.LateEase:
+                        _motionDisable = new LateMotionEase();
+                        break;
+                }
+            }
+            else
+            {
+                switch (MotionTypeDisable)
+                {
+                    case EUIMotionType.Immediate when _motionDisable.GetType() != typeof(MotionImmediate):
+                        _motionDisable = new MotionImmediate();
+                        break;
+                    case EUIMotionType.NormalCurve when _motionDisable.GetType() != typeof(MotionCurve):
+                        _motionDisable = new MotionCurve();
+                        break;
+                    case EUIMotionType.NormalEase when _motionDisable.GetType() != typeof(MotionEase):
+                        _motionDisable = new MotionEase();
+                        break;
+                    case EUIMotionType.UniformCurve when _motionDisable.GetType() != typeof(UniformMotionCurve):
+                        _motionDisable = new UniformMotionCurve();
+                        break;
+                    case EUIMotionType.UniformEase when _motionDisable.GetType() != typeof(UniformMotionEase):
+                        _motionDisable = new UniformMotionEase();
+                        break;
+                    case EUIMotionType.LateCurve when _motionDisable.GetType() != typeof(LateMotionCurve):
+                        _motionDisable = new LateMotionCurve();
+                        break;
+                    case EUIMotionType.LateEase when _motionDisable.GetType() != typeof(LateMotionEase):
+                        _motionDisable = new LateMotionEase();
                         break;
                 }
             }
