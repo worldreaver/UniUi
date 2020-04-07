@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/worldreaver/UniUi/compare/1.2.0...1.3.0) (2020-04-07)
+
+
+### Features
+
+* support motion when disable ([6e05746](https://github.com/worldreaver/UniUi/commit/6e05746f3b2a74f341e66989ad882babc098c44a))
+
 # [1.2.0](https://github.com/worldreaver/UniUi/compare/1.1.0...1.2.0) (2020-04-07)
 
 
