@@ -5,15 +5,18 @@ using Worldreaver.UniTween;
 
 namespace Worldreaver.UniUI
 {
+    /// <summary>
+    /// normal motion
+    /// </summary>
     [Serializable]
-    public class MotionEaseEase : IMotion
+    public class MotionEase : IMotion
     {
 #pragma warning disable 0649
-        public Vector3 percentScaleDown = new Vector3(0.95f, 0.95f, 1f);
+        public Vector3 percentScaleDown = new Vector3(0.92f, 0.92f, 1f);
         public float durationDown = 0.1f;
-        public Easing.Type easeDown = Easing.Type.Linear;
+        public Easing.Type easeDown = Easing.Type.OutQuad;
         public float durationUp = 0.1f;
-        public Easing.Type easeUp = Easing.Type.Linear;
+        public Easing.Type easeUp = Easing.Type.OutQuad;
 #pragma warning restore 0649
 
         public Vector3 PercentScaleDown => percentScaleDown;
@@ -36,7 +39,8 @@ namespace Worldreaver.UniUI
             DisposeUp();
             var tween = Easing.Interpolate(easeDown, durationDown);
             DisposeDown();
-            _disposableDown = Tweener.Play(affectObject.localScale, new Vector3(defaultScale.x * PercentScaleDown.x, defaultScale.y * PercentScaleDown.y), tween).SubscribeToLocalScale(affectObject).AddTo(affectObject);
+            _disposableDown = Tweener.Play(affectObject.localScale, new Vector3(defaultScale.x * PercentScaleDown.x, defaultScale.y * PercentScaleDown.y), tween).SubscribeToLocalScale(affectObject)
+                .AddTo(affectObject);
         }
 
         public void DisposeDown()

@@ -3,14 +3,14 @@
     public enum EUIMotionType
     {
         Immediate = 0,
-        EaseDownEaseUp = 1,
-        EaseDownCurveUp = 2,
-        CurveDownEaseUp = 3,
-        CurveDownCurveUp = 4,
-        
-        UniformEaseDownEaseUp = 6,
-        UniformEaseDownCurveUp = 7,
-        UniformCurveDownEaseUp = 8,
-        UniformCurveDownCurveUp = 9,
+
+        NormalEase = 1,
+        NormalCurve = 4,
+
+        UniformEase = 6,
+        UniformCurve = 9,
+
+        LateEase = 10,
+        LateCurve = 11
     }
 }

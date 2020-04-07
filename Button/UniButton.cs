@@ -148,29 +148,23 @@ namespace Worldreaver.UniUI
                     case EUIMotionType.Immediate:
                         _motion = new MotionImmediate();
                         break;
-                    case EUIMotionType.CurveDownCurveUp:
-                        _motion = new MotionCurveCurve();
+                    case EUIMotionType.NormalCurve:
+                        _motion = new MotionCurve();
                         break;
-                    case EUIMotionType.CurveDownEaseUp:
-                        _motion = new MotionCurveEase();
+                    case EUIMotionType.NormalEase:
+                        _motion = new MotionEase();
                         break;
-                    case EUIMotionType.EaseDownCurveUp:
-                        _motion = new MotionEaseCurve();
+                    case EUIMotionType.UniformCurve:
+                        _motion = new UniformMotionCurve();
                         break;
-                    case EUIMotionType.EaseDownEaseUp:
-                        _motion = new MotionEaseEase();
+                    case EUIMotionType.UniformEase:
+                        _motion = new UniformMotionEase();
                         break;
-                    case EUIMotionType.UniformCurveDownCurveUp:
-                        _motion = new UniformMotionCurveCurve();
+                    case EUIMotionType.LateCurve:
+                        _motion = new LateMotionCurve();
                         break;
-                    case EUIMotionType.UniformCurveDownEaseUp:
-                        _motion = new UniformMotionCurveEase();
-                        break;
-                    case EUIMotionType.UniformEaseDownCurveUp:
-                        _motion = new UniformMotionEaseCurve();
-                        break;
-                    case EUIMotionType.UniformEaseDownEaseUp:
-                        _motion = new UniformMotionEaseEase();
+                    case EUIMotionType.LateEase:
+                        _motion = new LateMotionEase();
                         break;
                 }
             }
@@ -181,29 +175,23 @@ namespace Worldreaver.UniUI
                     case EUIMotionType.Immediate when _motion.GetType() != typeof(MotionImmediate):
                         _motion = new MotionImmediate();
                         break;
-                    case EUIMotionType.CurveDownCurveUp when _motion.GetType() != typeof(MotionCurveCurve):
-                        _motion = new MotionCurveCurve();
+                    case EUIMotionType.NormalCurve when _motion.GetType() != typeof(MotionCurve):
+                        _motion = new MotionCurve();
                         break;
-                    case EUIMotionType.CurveDownEaseUp when _motion.GetType() != typeof(MotionCurveEase):
-                        _motion = new MotionCurveEase();
+                    case EUIMotionType.NormalEase when _motion.GetType() != typeof(MotionEase):
+                        _motion = new MotionEase();
                         break;
-                    case EUIMotionType.EaseDownCurveUp when _motion.GetType() != typeof(MotionEaseCurve):
-                        _motion = new MotionEaseCurve();
+                    case EUIMotionType.UniformCurve when _motion.GetType() != typeof(UniformMotionCurve):
+                        _motion = new UniformMotionCurve();
                         break;
-                    case EUIMotionType.EaseDownEaseUp when _motion.GetType() != typeof(MotionEaseEase):
-                        _motion = new MotionEaseEase();
+                    case EUIMotionType.UniformEase when _motion.GetType() != typeof(UniformMotionEase):
+                        _motion = new UniformMotionEase();
                         break;
-                    case EUIMotionType.UniformCurveDownCurveUp when _motion.GetType() != typeof(UniformMotionCurveCurve):
-                        _motion = new UniformMotionCurveCurve();
+                    case EUIMotionType.LateCurve when _motion.GetType() != typeof(LateMotionCurve):
+                        _motion = new LateMotionCurve();
                         break;
-                    case EUIMotionType.UniformCurveDownEaseUp when _motion.GetType() != typeof(UniformMotionCurveEase):
-                        _motion = new UniformMotionCurveEase();
-                        break;
-                    case EUIMotionType.UniformEaseDownCurveUp when _motion.GetType() != typeof(UniformMotionEaseCurve):
-                        _motion = new UniformMotionEaseCurve();
-                        break;
-                    case EUIMotionType.UniformEaseDownEaseUp when _motion.GetType() != typeof(UniformMotionEaseEase):
-                        _motion = new UniformMotionEaseEase();
+                    case EUIMotionType.LateEase when _motion.GetType() != typeof(LateMotionEase):
+                        _motion = new LateMotionEase();
                         break;
                 }
             }
