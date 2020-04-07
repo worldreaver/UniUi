@@ -1,5 +1,6 @@
 ﻿#if UNITY_EDITOR
 using UnityEditor;
+using UnityEngine;
 using Worldreaver.EditorUtility;
 
 namespace Worldreaver.UniUI
@@ -9,6 +10,7 @@ namespace Worldreaver.UniUI
     public class UniTabEditor : UnityEditor.UI.ToggleEditor
     {
         private SerializedProperty _isMotion;
+        private SerializedProperty _allowMotionDisable;
         private SerializedProperty _isAffectToSelf;
         private SerializedProperty _isSwitchSprite;
         private SerializedProperty _isExpan;
@@ -32,14 +34,15 @@ namespace Worldreaver.UniUI
 
         protected void Draw()
         {
+            GUILayout.Space(6);
             _isSwitchSprite = EditorUtil.SerializeField(serializedObject, "isSwitchSprite");
             if (_isSwitchSprite.boolValue)
             {
                 EditorUtil.SerializeField(serializedObject, "activeSprite");
                 EditorUtil.SerializeField(serializedObject, "deactiveSprite");
-                EditorGUILayout.Space();
+                GUILayout.Space(6);
             }
-
+            
             _isMotion = EditorUtil.SerializeField(serializedObject, "isMotion");
             if (_isMotion.boolValue)
             {
@@ -83,8 +86,19 @@ namespace Worldreaver.UniUI
                     ClearLayoutElement();
                 }
 
-                EditorUtil.SerializeField(serializedObject, "motionType");
-                EditorUtil.SerializeField(serializedObject, "_motion");
+                _allowMotionDisable = EditorUtil.SerializeField(serializedObject, "allowMotionDisable", "Allow Motion When Disable");
+                
+                GUILayout.Space(6);
+                EditorUtil.SerializeField(serializedObject, "motionType", "Type Motion");
+                EditorUtil.SerializeField(serializedObject, "_motion", "Motion Data");
+                
+                if (_allowMotionDisable.boolValue)
+                {
+                    GUILayout.Space(8);
+                    EditorUtil.SerializeField(serializedObject, "motionTypeDisable", "Type Motion When Disable");
+                    EditorUtil.SerializeField(serializedObject, "_motionDisable", "Motion Data");
+                }
+                
             }
             else
             {

@@ -13,6 +13,13 @@
         bool IsMotion { get; }
 
         /// <summary>
+        /// if flag IsMotion is true
+        /// flag AllowDisableMotion is effective
+        /// if flag AllowDisableMotion is true using another motion for statte disable
+        /// </summary>
+        bool AllowMotionDisable { get; }
+
+        /// <summary>
         /// is release only set true when OnPointerUp called
         /// </summary>
         bool IsRelease { get; }
@@ -26,5 +33,20 @@
         /// motion type
         /// </summary>
         EUIMotionType MotionType { get; }
+
+        /// <summary>
+        /// motion type
+        /// </summary>
+        EUIMotionType MotionTypeDisable { get; }
+
+        /// <summary>
+        /// normal motion
+        /// </summary>
+        IMotion Motion { get; }
+
+        /// <summary>
+        /// motion when button is disable
+        /// </summary>
+        IMotion MotionDisable { get; }
     }
 }
