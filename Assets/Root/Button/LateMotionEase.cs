@@ -5,15 +5,19 @@ using Worldreaver.UniTween;
 
 namespace Worldreaver.UniUI
 {
+    /// <summary>
+    /// only motion when OnPointerUp or OnPointerExit call
+    /// no motion when OnPointerDown
+    /// </summary>
     [Serializable]
-    public class UniformMotionEaseEase : IMotion
+    public class LateMotionEase : IMotion
     {
 #pragma warning disable 0649
-        public Vector3 percentScaleDown = new Vector3(0.95f, 0.95f, 1f);
+        public Vector3 percentScaleDown = new Vector3(1.15f, 1.15f, 1f);
         public float durationDown = 0.1f;
-        public Easing.Type easeDown = Easing.Type.Linear;
+        public Easing.Type easeDown = Easing.Type.OutQuad;
         public float durationUp = 0.1f;
-        public Easing.Type easeUp = Easing.Type.Linear;
+        public Easing.Type easeUp = Easing.Type.OutQuad;
 #pragma warning restore 0649
 
         public Vector3 PercentScaleDown => percentScaleDown;
@@ -22,11 +26,6 @@ namespace Worldreaver.UniUI
         private IDisposable _disposableUp;
 
         public void MotionUp(Vector3 defaultScale,
-            RectTransform affectObject)
-        {
-        }
-
-        public void MotionDown(Vector3 defaultScale,
             RectTransform affectObject)
         {
             DisposeUp();
@@ -38,6 +37,11 @@ namespace Worldreaver.UniUI
                 DisposeUp();
                 _disposableUp = Tweener.Play(affectObject.localScale, defaultScale, tweenUp).SubscribeToLocalScale(affectObject).AddTo(affectObject);
             }).SubscribeToLocalScale(affectObject).AddTo(affectObject);
+        }
+
+        public void MotionDown(Vector3 defaultScale,
+            RectTransform affectObject)
+        {
         }
 
         public void DisposeDown()

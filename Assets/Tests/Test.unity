@@ -347,7 +347,7 @@ MonoBehaviour:
       m_Calls: []
   pivot: 5
   isMotion: 1
-  motionType: 9
+  motionType: 11
   isAffectToSelf: 1
   affectObject: {fileID: 0}
   _motion:
@@ -355,10 +355,10 @@ MonoBehaviour:
   references:
     version: 1
     00000000:
-      type: {class: UniformMotionCurveCurve, ns: Worldreaver.UniUI, asm: wr@uniui}
+      type: {class: LateMotionCurve, ns: Worldreaver.UniUI, asm: wr@uniui}
       data:
-        percentScaleDown: {x: 1.2, y: 1.2, z: 1}
-        durationDown: 0.2
+        percentScaleDown: {x: 1.15, y: 1.15, z: 1}
+        durationDown: 0.1
         curveDown:
           serializedVersion: 2
           m_Curve:
@@ -397,13 +397,22 @@ MonoBehaviour:
             inWeight: 0
             outWeight: 0
           - serializedVersion: 3
-            time: 1
-            value: 1
-            inSlope: 0
-            outSlope: 0
+            time: 0.78576785
+            value: 1.2254448
+            inSlope: -0.081679955
+            outSlope: -0.081679955
             tangentMode: 0
             weightedMode: 0
-            inWeight: 0
+            inWeight: 0.33333334
+            outWeight: 0.43287653
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: -1.9838877
+            outSlope: -1.9838877
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.27852923
             outWeight: 0
           m_PreInfinity: 2
           m_PostInfinity: 2
