@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/worldreaver/UniUi/compare/1.1.0...1.2.0) (2020-04-07)
+
+
+### Features
+
+* update motion of button ([503d555](https://github.com/worldreaver/UniUi/commit/503d55582f69e049c784afab91deb5d8233501d4))
+
 # [1.1.0](https://github.com/worldreaver/UniUi/compare/1.0.0...1.1.0) (2020-04-07)
 
 
