@@ -9,6 +9,7 @@ namespace Worldreaver.UniUI
 
         #region Implementation of IUniPopupHandler
 
+        public GameObject ThisGameObject => gameObject;
         public Canvas Canvas => canvas;
 
         public virtual void Show()

@@ -3,6 +3,11 @@
     public interface IUniPopupHandler
     {
         /// <summary>
+        /// game object
+        /// </summary>
+        UnityEngine.GameObject ThisGameObject { get; }
+
+        /// <summary>
         /// canvas contains popup
         /// </summary>
         UnityEngine.Canvas Canvas { get; }

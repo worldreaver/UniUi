@@ -93,5 +93,23 @@ namespace Worldreaver.UniUI
         {
             Show(uniPopupHandler, _stacks.Count);
         }
+
+        /// <summary>
+        /// check has exist <paramref name="uniPopupHandler"/> in active stack
+        /// </summary>
+        /// <param name="uniPopupHandler"></param>
+        /// <returns></returns>
+        public bool HasPoup(IUniPopupHandler uniPopupHandler)
+        {
+            foreach (var handler in _stacks)
+            {
+                if (handler == uniPopupHandler)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }
