@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/worldreaver/UniUi/compare/1.3.0...1.3.1) (2020-04-08)
+
+
+### Bug Fixes
+
+* name space of popup ([5868e69](https://github.com/worldreaver/UniUi/commit/5868e69b1d0ebcf16adc07ae238dcae74ebf4dd1))
+
 # [1.3.0](https://github.com/worldreaver/UniUi/compare/1.2.0...1.3.0) (2020-04-07)
 
 
