@@ -61,6 +61,7 @@ namespace Worldreaver.UniUI
             uniPopupHandler.UpdateSortingOrder(lastOrder + 10);
             SortingOrder.OnNext(lastOrder);
             _stacks.Push(uniPopupHandler);
+            uniPopupHandler.Show(); // show
         }
 
         /// <summary>
