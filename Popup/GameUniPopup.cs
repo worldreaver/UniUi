@@ -2,7 +2,7 @@
 using UniRx;
 using UnityEngine;
 
-namespace UnityModule.UniPopup
+namespace Worldreaver.UniUI
 {
     public partial class GameUniPopup : MonoBehaviour
     {

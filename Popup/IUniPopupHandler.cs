@@ -1,4 +1,4 @@
-﻿namespace UnityModule.UniPopup
+﻿namespace Worldreaver.UniUI
 {
     public interface IUniPopupHandler
     {
@@ -15,7 +15,7 @@
         /// <summary>
         /// deactive popup
         /// </summary>
-        void Hide();
+        void Close();
 
         /// <summary>
         /// update sorting order of cavas contains popup

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UniRx;
 
-namespace UnityModule.UniPopup
+namespace Worldreaver.UniUI
 {
     public class UniPopup
     {
@@ -20,7 +20,7 @@ namespace UnityModule.UniPopup
         /// </summary>
         public void Hide()
         {
-            _stacks.Pop().Hide();
+            _stacks.Pop().Close();
             var orderOfBoard = 0;
             if (_stacks.Count > 1)
             {
@@ -39,7 +39,7 @@ namespace UnityModule.UniPopup
             var count = _stacks.Count;
             for (int i = 0; i < count; i++)
             {
-                _stacks.Pop().Hide();
+                _stacks.Pop().Close();
             }
 
             SortingOrder.OnNext(0);
@@ -79,7 +79,7 @@ namespace UnityModule.UniPopup
             for (int i = 0; i < number; i++)
             {
                 var p = _stacks.Pop();
-                p.Hide();
+                p.Close();
             }
 
             Show(uniPopupHandler);
