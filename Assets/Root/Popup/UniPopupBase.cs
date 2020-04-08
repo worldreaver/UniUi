@@ -1,7 +1,7 @@
 ﻿#pragma warning disable 0649
 using UnityEngine;
 
-namespace UnityModule.UniPopup
+namespace Worldreaver.UniUI
 {
     public class UniPopupBase : MonoBehaviour, IUniPopupHandler
     {
@@ -16,7 +16,7 @@ namespace UnityModule.UniPopup
             gameObject.SetActive(true);
         }
 
-        public virtual void Hide()
+        public virtual void Close()
         {
             gameObject.SetActive(false);
         }
