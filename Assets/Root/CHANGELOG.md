@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/worldreaver/UniUi/compare/1.3.1...1.3.2) (2020-04-09)
+
+
+### Bug Fixes
+
+* public seter for IsMotion ([84a27c9](https://github.com/worldreaver/UniUi/commit/84a27c9408c8f9a157ae20f53251f77ad702466a))
+
 ## [1.3.1](https://github.com/worldreaver/UniUi/compare/1.3.0...1.3.1) (2020-04-08)
 
 
