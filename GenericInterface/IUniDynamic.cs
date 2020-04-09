@@ -10,7 +10,7 @@
         /// <summary>
         /// is using motion when click button
         /// </summary>
-        bool IsMotion { get; }
+        bool IsMotion { get; set; }
 
         /// <summary>
         /// if flag IsMotion is true

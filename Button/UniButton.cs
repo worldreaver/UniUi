@@ -27,22 +27,14 @@ namespace Worldreaver.UniUI
         #region Implementation of IButton
 
         public EPivot Pivot => pivot;
-        public bool IsMotion => isMotion;
+        public bool IsMotion { get => isMotion; set => isMotion = value; }
         public bool AllowMotionDisable => allowMotionDisable;
         public bool IsRelease { get; private set; }
         public bool IsPrevent { get; private set; }
 
-        public EUIMotionType MotionType
-        {
-            get => motionType;
-            private set => motionType = value;
-        }
+        public EUIMotionType MotionType { get => motionType; private set => motionType = value; }
 
-        public EUIMotionType MotionTypeDisable
-        {
-            get => motionTypeDisable;
-            private set => motionTypeDisable = value;
-        }
+        public EUIMotionType MotionTypeDisable { get => motionTypeDisable; private set => motionTypeDisable = value; }
 
         public IMotion Motion => _motion;
         public IMotion MotionDisable => _motionDisable;
@@ -116,7 +108,8 @@ namespace Worldreaver.UniUI
         }
 
 #endif
-        public override void OnPointerExit(PointerEventData eventData)
+        public override void OnPointerExit(
+            PointerEventData eventData)
         {
             if (IsRelease) return;
             base.OnPointerExit(eventData);
@@ -128,7 +121,8 @@ namespace Worldreaver.UniUI
 
         #region Overrides of Button
 
-        public override void OnPointerDown(PointerEventData eventData)
+        public override void OnPointerDown(
+            PointerEventData eventData)
         {
             base.OnPointerDown(eventData);
             IsRelease = false;
@@ -143,7 +137,8 @@ namespace Worldreaver.UniUI
             _motion?.MotionDown(DefaultScale, AffectObject);
         }
 
-        public override void OnPointerUp(PointerEventData eventData)
+        public override void OnPointerUp(
+            PointerEventData eventData)
         {
             if (IsRelease) return;
             base.OnPointerUp(eventData);
@@ -158,7 +153,8 @@ namespace Worldreaver.UniUI
             _motion?.MotionUp(DefaultScale, AffectObject);
         }
 
-        public override void OnPointerClick(PointerEventData eventData)
+        public override void OnPointerClick(
+            PointerEventData eventData)
         {
             if (IsRelease && IsPrevent) return;
             base.OnPointerClick(eventData);
