@@ -48,41 +48,21 @@ namespace Worldreaver.UniUI
         public bool IsRelease { get; private set; }
         public bool IsPrevent { get; private set; }
         public bool IsSwitchSprite => isSwitchSprite;
-        public bool IsMotion => isMotion;
+        public bool IsMotion { get => isMotion; set => isMotion = value; }
 
-        public List<RectTransform> ActiveObjects
-        {
-            get => activeObjects;
-            set => activeObjects = value;
-        }
+        public List<RectTransform> ActiveObjects { get => activeObjects; set => activeObjects = value; }
 
-        public List<RectTransform> DeactiveObjects
-        {
-            get => deactiveObjects;
-            set => deactiveObjects = value;
-        }
+        public List<RectTransform> DeactiveObjects { get => deactiveObjects; set => deactiveObjects = value; }
 
-        public Sprite ActiveSprite
-        {
-            get => activeSprite;
-            set => activeSprite = value;
-        }
+        public Sprite ActiveSprite { get => activeSprite; set => activeSprite = value; }
 
-        public Sprite DeactiveSprite
-        {
-            get => deactiveSprite;
-            set => deactiveSprite = value;
-        }
+        public Sprite DeactiveSprite { get => deactiveSprite; set => deactiveSprite = value; }
 
         public Image TargetGraphicImage => targetGraphic as Image;
         public Image GraphicImage => graphic as Image;
         public EUIMotionType MotionType => motionType;
 
-        public EUIMotionType MotionTypeDisable
-        {
-            get => motionTypeDisable;
-            private set => motionTypeDisable = value;
-        }
+        public EUIMotionType MotionTypeDisable { get => motionTypeDisable; private set => motionTypeDisable = value; }
 
         public IMotion Motion => _motion;
         public IMotion MotionDisable => _motionDisable;
@@ -217,7 +197,8 @@ namespace Worldreaver.UniUI
 
         #region Overrides of Selectable
 
-        public override void OnPointerDown(PointerEventData eventData)
+        public override void OnPointerDown(
+            PointerEventData eventData)
         {
             base.OnPointerDown(eventData);
             IsRelease = false;
@@ -232,7 +213,8 @@ namespace Worldreaver.UniUI
             _motion?.MotionDown(DefaultScale, AffectObject);
         }
 
-        public override void OnPointerUp(PointerEventData eventData)
+        public override void OnPointerUp(
+            PointerEventData eventData)
         {
             if (IsRelease) return;
             base.OnPointerUp(eventData);
@@ -247,7 +229,8 @@ namespace Worldreaver.UniUI
             _motion?.MotionUp(DefaultScale, AffectObject);
         }
 
-        public override void OnPointerExit(PointerEventData eventData)
+        public override void OnPointerExit(
+            PointerEventData eventData)
         {
             if (IsRelease) return;
             base.OnPointerExit(eventData);
@@ -255,7 +238,8 @@ namespace Worldreaver.UniUI
             OnPointerUp(eventData);
         }
 
-        public override void OnPointerClick(PointerEventData eventData)
+        public override void OnPointerClick(
+            PointerEventData eventData)
         {
             if (IsRelease && IsPrevent) return;
             base.OnPointerClick(eventData);
@@ -331,7 +315,8 @@ namespace Worldreaver.UniUI
             }
         }
 
-        private void OnValueChanged(bool isOn)
+        private void OnValueChanged(
+            bool isOn)
         {
             Refresh();
         }
