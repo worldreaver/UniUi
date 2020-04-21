@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/worldreaver/UniUi/compare/1.3.2...1.4.0) (2020-04-21)
+
+
+### Features
+
+* motion of button use unusescale schedule ([0dda460](https://github.com/worldreaver/UniUi/commit/0dda4602fa5d13141dc77ed1d4493c5dbb935c5f))
+
 ## [1.3.2](https://github.com/worldreaver/UniUi/compare/1.3.1...1.3.2) (2020-04-09)
 
 
