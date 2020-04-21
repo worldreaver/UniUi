@@ -49,7 +49,7 @@ namespace Worldreaver.UniUI
                 {
                     var tweenUp = TweenMotion.From(curveUp, durationUp);
                     DisposeUp();
-                    _disposableUp = Tweener.Play(affectObject.localScale, defaultScale, tweenUp)
+                    _disposableUp = Tweener.Play(affectObject.localScale, defaultScale, tweenUp, UnuseScaleScheduler)
                         .SubscribeToLocalScale(affectObject)
                         .AddTo(affectObject);
                 })
