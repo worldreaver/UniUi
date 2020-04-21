@@ -1,4 +1,6 @@
-﻿namespace Worldreaver.UniUI
+﻿using Worldreaver.UniTween;
+
+namespace Worldreaver.UniUI
 {
     public interface IMotion
     {
@@ -18,5 +20,10 @@
         /// </summary>
         void MotionDown(UnityEngine.Vector3 defaultScale,
             UnityEngine.RectTransform affectObject);
+        
+        /// <summary>
+        /// unuse scale scheduler
+        /// </summary>
+        IScheduler UnuseScaleScheduler { get; }
     }
 }
