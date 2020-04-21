@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/worldreaver/UniUi/compare/1.4.0...1.4.1) (2020-04-21)
+
+
+### Bug Fixes
+
+* missing use unscaledscheduler in uniform motion ([33423f7](https://github.com/worldreaver/UniUi/commit/33423f799876d21783c736ed7be0940aba6424a5))
+
 # [1.4.0](https://github.com/worldreaver/UniUi/compare/1.3.2...1.4.0) (2020-04-21)
 
 
