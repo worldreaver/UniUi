@@ -2,6 +2,7 @@
 using UniRx;
 using UnityEngine;
 using Worldreaver.UniTween;
+using IScheduler = Worldreaver.UniTween.IScheduler;
 
 namespace Worldreaver.UniUI
 {
@@ -20,25 +21,37 @@ namespace Worldreaver.UniUI
 #pragma warning restore 0649
 
         public Vector3 PercentScaleDown => percentScaleDown;
+        public IScheduler UnuseScaleScheduler => _scheduler ?? (_scheduler = new UnscaledTimeScheduler());
+
+        private IScheduler _scheduler;
         private IDisposable _disposableDown;
         private IDisposable _disposableUp;
 
-        public void MotionUp(Vector3 defaultScale,
+        public void MotionUp(
+            Vector3 defaultScale,
             RectTransform affectObject)
         {
             DisposeDown();
             var tween = TweenMotion.From(curveUp, durationUp);
             DisposeUp();
-            _disposableUp = Tweener.Play(affectObject.localScale, defaultScale, tween).SubscribeToLocalScale(affectObject).AddTo(affectObject);
+            _disposableUp = Tweener.Play(affectObject.localScale, defaultScale, tween, UnuseScaleScheduler)
+                .SubscribeToLocalScale(affectObject)
+                .AddTo(affectObject);
         }
 
-        public void MotionDown(Vector3 defaultScale,
+        public void MotionDown(
+            Vector3 defaultScale,
             RectTransform affectObject)
         {
             DisposeUp();
             var tween = TweenMotion.From(curveDown, durationDown);
             DisposeDown();
-            _disposableDown = Tweener.Play(affectObject.localScale, new Vector3(defaultScale.x * PercentScaleDown.x, defaultScale.y * PercentScaleDown.y), tween).SubscribeToLocalScale(affectObject).AddTo(affectObject);
+            _disposableDown = Tweener.Play(affectObject.localScale,
+                    new Vector3(defaultScale.x * PercentScaleDown.x, defaultScale.y * PercentScaleDown.y),
+                    tween,
+                    UnuseScaleScheduler)
+                .SubscribeToLocalScale(affectObject)
+                .AddTo(affectObject);
         }
 
         public void DisposeDown()
