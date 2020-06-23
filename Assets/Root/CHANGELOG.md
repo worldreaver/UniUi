@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/worldreaver/UniUi/compare/1.4.1...1.5.0) (2020-06-23)
+
+
+### Features
+
+* add textcounter ([aefce54](https://github.com/worldreaver/UniUi/commit/aefce547bb4094f599ff0405cba6b62316ade47d))
+
 ## [1.4.1](https://github.com/worldreaver/UniUi/compare/1.4.0...1.4.1) (2020-04-21)
 
 
